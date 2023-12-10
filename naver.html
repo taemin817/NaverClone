@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naver</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            border: 1px solid black;
+            /* padding이나 border가 사용자가 지정한 width와 height에 포함 되게 설정*/
+            box-sizing: border-box;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    네이버 메인 코딩하자
+    <div id="total-wrap">
+        <div id="header"></div>
+        <div id="container"></div>
+        <div id="footer"></div>
+    </div>
 </body>
 </html>
