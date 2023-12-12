@@ -6,10 +6,9 @@
     <title>Naver</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <style>
-        * {
-            border: 1px solid black;
-            /* padding이나 border가 사용자가 지정한 width와 height에 포함 되게 설정*/
-            box-sizing: border-box;
+        html, body{
+            margin: 0;
+            padding: 0;
         }
         ul, ol {
             list-style: none;
@@ -17,13 +16,51 @@
         a {
             text-decoration: none;
         }
+        #wrap {
+            text-align: center;
+            height: 100vh;
+        }
+        #wrap-center {
+            width: 1280px;
+            height: 100%;
+            background-color: yellow;
+            display: inline-block;
+        }
+        #header {
+            text-align: left;
+        }
+        #header-hamburger {
+            margin-top: 18px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+        }
+        #header-hamburger > div {
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-position: -335px -81px;
+            background-repeat: no-repeat;
+            width: 26px;
+            height: 26px;
+        }
+
     </style>
 </head>
 <body>
-    <div id="total-wrap">
-        <div id="header"></div>
-        <div id="container"></div>
-        <div id="footer"></div>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-hamburger">
+                    <div></div>
+                <button>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="search"></div>
+            <div id="nav"></div>
+            <div id="main"></div>
+        </div>
     </div>
 </body>
 </html>
