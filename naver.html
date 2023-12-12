@@ -6,6 +6,77 @@
     <title>Naver</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <style>
+        /* 
+        css의 변수 선언
+            --속성명 : 속성값
+        css의 변수 사용
+            속성 : var(속성명)
+        아래에선 root라고 속성이름을 줌
+        */
+        :root {
+            --color_block_bg: #fff;
+            --color_block_bg_rgb: 255,255,255;
+            --color_board_bg: #f4f6fa;
+            --color_board_bg_rgb: 244,246,250;
+            --color_body: #101010;
+            --color_body_rgb: 16,16,16;
+            --color_border_in: #ebebeb;
+            --color_border_in_divider: #ebebeb;
+            --color_border_in_divider_rgb: 235,235,235;
+            --color_border_in_exception: #ebebeb;
+            --color_border_in_exception_rgb: 235,235,235;
+            --color_border_in_rgb: 235,235,235;
+            --color_border_out: #e3e5e8;
+            --color_border_out_rgb: 227,229,232;
+            --color_button_border: #dadcdf;
+            --color_button_border_rgb: 218,220,223;
+            --color_button1_bg: #fff;
+            --color_button1_bg_rgb: 255,255,255;
+            --color_button2_bg: #fff;
+            --color_button2_bg_rgb: 255,255,255;
+            --color_calendar: #eb5b5b;
+            --color_calendar_rgb: 235,91,91;
+            --color_caption1: #404040;
+            --color_caption1_rgb: 64,64,64;
+            --color_caption2: #606060;
+            --color_caption2_rgb: 96,96,96;
+            --color_caption3: #555558;
+            --color_caption3_rgb: 85,85,88;
+            --color_dic: #031f5f;
+            --color_dic_rgb: 3,31,95;
+            --color_dot_divider: #d3d5d7;
+            --color_dot_divider_rgb: 211,213,215;
+            --color_econ: #008f76;
+            --color_econ_rgb: 0,143,118;
+            --color_enter: #e538e2;
+            --color_enter_bg: #f2f1fb;
+            --color_enter_bg_rgb: 242,241,251;
+            --color_enter_rgb: 229,56,226;
+            --color_live_news_price: #f4361e;
+            --color_live_news_price_rgb: 244,54,30;
+            --color_login_bg: #fafbfb;
+            --color_login_bg_rgb: 250,251,251;
+            --color_menu_widget_bg: #fff;
+            --color_menu_widget_bg_rgb: 255,255,255;
+            --color_news: #3a67ea;
+            --color_news_econ_down: #4f67d6;
+            --color_news_econ_down_rgb: 79,103,214;
+            --color_news_econ_stay: #909aab;
+            --color_news_econ_stay_rgb: 144,154,171;
+            --color_news_rgb: 58,103,234;
+            --color_option_bg: #f5f7f8;
+            --color_option_bg_rgb: 245,247,248;
+            --color_search: #000;
+            --color_search_rgb: 0,0,0;
+            --color_setting_bg: #fff;
+            --color_setting_bg_rgb: 255,255,255;
+            --color_sports: #1f65ef;
+            --color_sports_bg: #f4f7fe;
+            --color_sports_bg_rgb: 244,247,254;
+            --color_sports_rgb: 31,101,239;
+            --color_title: #080808;
+            --color_title_rgb: 8,8,8;
+        }
         html, body{
             margin: 0;
             padding: 0;
@@ -28,23 +99,162 @@
         }
         #header {
             text-align: left;
+            position: relative;
         }
         #header-hamburger {
-            margin-top: 18px;
+            position: absolute;
+            top: 21px;
+            left: -13px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
+            cursor: pointer;
+            color : var(--color_body)
+        }
+        #header-hamburger:hover::before{
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            left: 1px;
+            top: 1px;
+            content: '';
+            background-color: var(--color_option_bg);
+            border-radius: 50%;
+            z-index : 0;
+        }
+        #header-hamburger:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
         }
         #header-hamburger > div {
+            width: 26px;
+            height: 26px;
             background-image: url(./sp_main.png);
             background-size: 433px 412px;
             background-position: -335px -81px;
             background-repeat: no-repeat;
+            z-index : 1;
+        }
+        #header-naverpay {
+            position: absolute;
+            top: 17px;
+            left: 42px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color : var(--color_body)
+        }
+        #header-naverpay:hover::before{
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            left: 5px;
+            top: 5px;
+            content: '';
+            background-color: var(--color_option_bg);
+            border-radius: 50%;
+            z-index : 0;
+        }
+        #header-naverpay:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-naverpay > div {
+            width: 34px;
+            height: 34px;
+            background-image: url(./sp_main.png);
+            background-size: 436px 417px;
+            background-position: -297px -179px;
+            background-repeat: no-repeat;
+            z-index : 1;
+        }
+        #header-conversation {
+            position: absolute;
+            top: 21px;
+            right: 50px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color : var(--color_body)
+        }
+        #header-conversation:hover::before{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 3px;
+            top: 4px;
+            content: '';
+            background-color: var(--color_option_bg);
+            border-radius: 50%;
+            z-index : 0;
+        }
+        #header-conversation:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-conversation > div {
             width: 26px;
             height: 26px;
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-position: -335px -189px;
+            background-repeat: no-repeat;
+            z-index : 1;
         }
-
+        #header-notice {
+            position: absolute;
+            top: 21px;
+            right: -10px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color : var(--color_body)
+        }
+        #header-notice:hover::before{
+            position: absolute;
+            content: "";
+            display: block;
+            width: 44px;
+            height: 44px;
+            left: 2px;
+            top: 2px;
+            background-color: var(--color_option_bg);
+            margin: auto;
+            border-radius: 50%;
+        }
+        #header-notice:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-notice > div {
+            width: 26px;
+            height: 26px;
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-position: -335px -135px;
+            background-repeat: no-repeat;
+            z-index : 1;
+        }
+        /* 시각 장애인을 위한 속성 */
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -53,9 +263,24 @@
             <div id="header">
                 <button id="header-hamburger">
                     <div></div>
-                <button>
-                <div></div>
-                <div></div>
+                    <!-- 시각 장애인을 위한 span -->
+                    <span class="blind">확장 영역</span>
+                </button>
+                <button id="header-naverpay">
+                    <div></div>
+                    <!-- 시각 장애인을 위한 span -->
+                    <span class="blind">확장 영역</span>
+                </button>
+                <button id="header-conversation">
+                    <div></div>
+                    <!-- 시각 장애인을 위한 span -->
+                    <span class="blind">확장 영역</span>
+                </button>
+                <button id="header-notice">
+                    <div></div>
+                    <!-- 시각 장애인을 위한 span -->
+                    <span class="blind">확장 영역</span>
+                </button>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
