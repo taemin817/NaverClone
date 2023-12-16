@@ -185,7 +185,7 @@
             background-position: -335px -135px;
         }
         #search > form {
-            display: inline-block;
+            display: inline-flex;
             width: 708px;
             height: 60px;
             border: 1px solid #03c75a;
@@ -213,14 +213,67 @@
         #search-svg::after {
             display: none;
         }
+        /*focus-within : 자식 중에 포커스 되어있는게 있을 때*/
+        #search > form:focus-within #search-svg::after {
+            content: '';
+            width: 1px;
+            height: 20px;
+            background-color: #e4e4e4;
+            position: absolute;
+            display: inline-block;
+            right: 0;
+            top: 20px;
+        }
         #search-input {
             width: 480px;
-            height: 100%;
             padding: 17px 0px;
             font-size: 2rem;
+            line-height: 24px;
             font-weight: bold;
             border: none;
             outline: none;
+        }
+        #search-input::placeholder {
+            color: white;
+        }
+        #search-input:focus::placeholder {
+            color: #e4e4e4;
+        }
+        #search-right {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        #search-keyboard, #search-recent, #search-btn {
+            background: transparent; /*투명*/
+            border: none;
+            cursor: pointer;
+        }
+        #search-keyboard::before, #search-recent::before, #search-btn {
+            content: '';
+            display: block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.d5b6c236.png);
+            background-size: 433px 412px;
+            background-repeat: no-repeat;
+        }
+        #search-keyboard::before {
+            background-position: -270px -234px;
+            width: 24px;
+            height: 14px;
+        }
+        #search-keyboard:hover::before {
+            filter: brightness(0.7);
+        }
+        #search-recent::before {
+            background-position: -318px -247px;
+            width: 10px;
+            height: 6px;
+        }
+        #search-btn {
+            background-position: -335px -294px;
+            width: 25px;
+            height: 25px;
         }
         /* 시각 장애인을 위한 속성 */
         .blind {
@@ -246,30 +299,37 @@
                 </button>
                 <button id="header-naverpay">
                     <div></div>
-                    <!-- 시각 장애인을 위한 span -->
                     <span class="blind">네이버 페이 영역</span>
                 </button>
                 <button id="header-conversation">
                     <div></div>
-                    <!-- 시각 장애인을 위한 span -->
                     <span class="blind">톡톡 영역</span>
                 </button>
                 <button id="header-notice">
                     <div></div>
-                    <!-- 시각 장애인을 위한 span -->
                     <span class="blind">알림 영역</span>
                 </button>
             </div>
             <div id="search">
                 <form action=""> <!-- form 안에 input이 있으면 버튼을 누르지 않고 엔터를 치면 검색결과로 넘어감-->
-                    <a id="serach-svg" href="#">    <!-- # : 메인 페이지 최상단으로-->
+                    <a id="search-svg" href="#">    <!-- # : 현재 페이지 최상단으로-->
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path>
                         </svg>
                     </a>
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="serach-input" type="text" placeholder="검색어를 입력하세요" />
-                    <button class="blind">검색 버튼</button>
+                    <input id="search-input" type="text" placeholder="검색어를 입력하세요" />
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <span class="blind">입력 도구</span>
+                        </button>
+                        <button href="#" id="search-recent">
+                            <span class="blind">자동 완성/최근 검색어 펼치기</span>
+                        </button>
+                        <button href="#" id="search-btn">
+                            <div><span class="blind">검색 버튼</span></div>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="nav"></div>
