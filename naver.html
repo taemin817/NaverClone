@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naver</title>
+    <title>Naver Clone</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <style>
         /* 
@@ -13,6 +13,9 @@
             속성 : var(속성명)
         아래에선 root라고 속성이름을 줌
         */
+        * {
+            box-sizing: border-box;
+        }
         :root {
             --color_block_bg: #fff;
             --color_block_bg_rgb: 255,255,255;
@@ -77,7 +80,7 @@
             --color_title: #080808;
             --color_title_rgb: 8,8,8;
         }
-        html, body{
+        html, body, form {
             margin: 0;
             padding: 0;
         }
@@ -89,7 +92,6 @@
         }
         #wrap {
             text-align: center;
-            height: 100vh;
         }
         #wrap-center {
             width: 1280px;
@@ -100,11 +102,12 @@
         #header {
             text-align: left;
             position: relative;
+            height: 64px;
         }
-        #header-hamburger {
+        #header-hamburger, #header-naverpay, #header-conversation, #header-notice {
             position: absolute;
-            top: 21px;
-            left: -13px;
+            width: 46px;
+            height: 46px;
             padding: 10px;
             display: inline-block;
             background: none;
@@ -112,139 +115,112 @@
             cursor: pointer;
             color : var(--color_body)
         }
-        #header-hamburger:hover::before{
+        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-conversation:hover::before, #header-notice:hover::before {
             position: absolute;
             width: 44px;
             height: 44px;
-            left: 1px;
-            top: 1px;
             content: '';
             background-color: var(--color_option_bg);
             border-radius: 50%;
             z-index : 0;
         }
-        #header-hamburger:hover > div{
+        #header-hamburger > div, #header-naverpay > div, #header-conversation > div, #header-notice > div {
+            width: 26px;
+            height: 26px;
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-repeat: no-repeat;
+            z-index : 1;
+        }
+        #header-hamburger:hover > div, #header-naverpay:hover > div, #header-conversation:hover > div, #header-notice:hover > div{
             position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-hamburger {
+            top: 19px;
+            left: -11px;
+        }
+        #header-hamburger:hover::before{
             left: 1px;
             top: 1px;
         }
         #header-hamburger > div {
-            width: 26px;
-            height: 26px;
-            background-image: url(./sp_main.png);
-            background-size: 433px 412px;
             background-position: -335px -81px;
-            background-repeat: no-repeat;
-            z-index : 1;
         }
         #header-naverpay {
-            position: absolute;
-            top: 17px;
-            left: 42px;
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color : var(--color_body)
+            top: 15px;
+            left: 41px;
         }
         #header-naverpay:hover::before{
-            position: absolute;
-            width: 44px;
-            height: 44px;
             left: 5px;
             top: 5px;
-            content: '';
-            background-color: var(--color_option_bg);
-            border-radius: 50%;
-            z-index : 0;
-        }
-        #header-naverpay:hover > div{
-            position: relative;
-            left: 1px;
-            top: 1px;
         }
         #header-naverpay > div {
-            width: 34px;
-            height: 34px;
-            background-image: url(./sp_main.png);
+            width: 33px;
+            height: 33px;
             background-size: 436px 417px;
             background-position: -297px -179px;
-            background-repeat: no-repeat;
-            z-index : 1;
         }
         #header-conversation {
-            position: absolute;
-            top: 21px;
-            right: 50px;
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color : var(--color_body)
+            top: 19px;
+            right: 40px;
         }
         #header-conversation:hover::before{
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            left: 3px;
-            top: 4px;
-            content: '';
-            background-color: var(--color_option_bg);
-            border-radius: 50%;
-            z-index : 0;
-        }
-        #header-conversation:hover > div{
-            position: relative;
-            left: 1px;
-            top: 1px;
-        }
-        #header-conversation > div {
-            width: 26px;
-            height: 26px;
-            background-image: url(./sp_main.png);
-            background-size: 433px 412px;
-            background-position: -335px -189px;
-            background-repeat: no-repeat;
-            z-index : 1;
-        }
-        #header-notice {
-            position: absolute;
-            top: 21px;
-            right: -10px;
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color : var(--color_body)
-        }
-        #header-notice:hover::before{
-            position: absolute;
-            content: "";
-            display: block;
-            width: 44px;
-            height: 44px;
             left: 2px;
             top: 2px;
-            background-color: var(--color_option_bg);
-            margin: auto;
-            border-radius: 50%;
         }
-        #header-notice:hover > div{
-            position: relative;
-            left: 1px;
-            top: 1px;
+        #header-conversation > div {
+            background-position: -335px -189px;
+        }
+        #header-notice {
+            top: 19px;
+            right: -10px;
+        }
+        #header-notice:hover::before{
+            left: 2px;
+            top: 2px;
         }
         #header-notice > div {
-            width: 26px;
-            height: 26px;
-            background-image: url(./sp_main.png);
-            background-size: 433px 412px;
             background-position: -335px -135px;
-            background-repeat: no-repeat;
-            z-index : 1;
+        }
+        #search > form {
+            display: inline-block;
+            width: 708px;
+            height: 60px;
+            border: 1px solid #03c75a;
+            border-radius: 33px;
+            text-align: left;
+        }
+        #search > form:hover {
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);
+        }
+        #search-svg {
+            display: inline-flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            width: 68px;
+            height: 100%;
+            margin-right: 12px;
+            padding-left: 10px;
+        }
+        #search-svg svg {
+            width: 24px;
+            height: 24px;
+            fill: #03c75a;
+        }
+        #search-svg::after {
+            display: none;
+        }
+        #search-input {
+            width: 480px;
+            height: 100%;
+            padding: 17px 0px;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            outline: none;
         }
         /* 시각 장애인을 위한 속성 */
         .blind {
@@ -255,9 +231,11 @@
             margin: -1px;
             overflow: hidden;
         }
+
     </style>
 </head>
 <body>
+    <!-- 다른 페이지로 넘어가면 a태그, 클릭 효과만 주고 싶으면 button -->
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
@@ -269,20 +247,31 @@
                 <button id="header-naverpay">
                     <div></div>
                     <!-- 시각 장애인을 위한 span -->
-                    <span class="blind">확장 영역</span>
+                    <span class="blind">네이버 페이 영역</span>
                 </button>
                 <button id="header-conversation">
                     <div></div>
                     <!-- 시각 장애인을 위한 span -->
-                    <span class="blind">확장 영역</span>
+                    <span class="blind">톡톡 영역</span>
                 </button>
                 <button id="header-notice">
                     <div></div>
                     <!-- 시각 장애인을 위한 span -->
-                    <span class="blind">확장 영역</span>
+                    <span class="blind">알림 영역</span>
                 </button>
             </div>
-            <div id="search"></div>
+            <div id="search">
+                <form action=""> <!-- form 안에 input이 있으면 버튼을 누르지 않고 엔터를 치면 검색결과로 넘어감-->
+                    <a id="serach-svg" href="#">    <!-- # : 메인 페이지 최상단으로-->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path>
+                        </svg>
+                    </a>
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="serach-input" type="text" placeholder="검색어를 입력하세요" />
+                    <button class="blind">검색 버튼</button>
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
