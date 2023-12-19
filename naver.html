@@ -80,10 +80,14 @@
             --color_title: #080808;
             --color_title_rgb: 8,8,8;
         }
-        html, body, form {
+        html, body{
             font-size: 10.5px;
             line-height: 10.5px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Malgun Gothic", "맑은 고딕";
+            margin: 0;
+            padding: 0;
+        }
+        form, ul {
             margin: 0;
             padding: 0;
         }
@@ -102,7 +106,6 @@
         #wrap-center {
             width: 1280px;
             height: 100%;
-            background-color: yellow;
             display: inline-block;
         }
         #header {
@@ -281,13 +284,19 @@
             width: 25px;
             height: 25px;
         }
+        #nav {
+            margin-top: 12px;
+        }
         #nav > ul {
             display: flex;
             justify-content: center;
             font-size: 1.4rem;
             line-height: 20px;
         }
-        /* height는 자식 컨텐츠의 높이만큼 자동으로 설정되므로 웬만하면 고정시키지 말것 */
+        /* 
+        height는 자식 컨텐츠의 높이만큼 자동으로 설정되므로 웬만하면 고정시키지 않을 것
+        부모부터 자식 순으로 코딩해라
+        */
         #nav li {
             width: 64px;
             margin-left: 4px;
@@ -318,14 +327,8 @@
         #nav li:nth-of-type(7) a div::after {
             background-position: -45px -209px;
         }
-        #nav li:nth-of-type(8) a div::before {
-            left: 0;
-        }
         #nav li:nth-of-type(8) a div::after {
             background-position: -201px 0px;
-            width: 48px;
-            height: 48px;
-            top: -2px;
         }
         #nav li:nth-of-type(9) a div::after {
             background-position: -225px -209px;
@@ -337,7 +340,7 @@
             text-align: center;
         }
         #nav li a div::before {
-            content: "";
+            content: '';
             display: block;
             position: absolute;
             top: -2px;
@@ -350,6 +353,7 @@
             height: 54px;
         }
         #nav a div {
+            margin-bottom: 4px;
             position: relative;
         }
         #nav a div::after{
@@ -364,6 +368,84 @@
             width: 44px;
             height: 44px;
         }
+        #main {
+            display: flex;
+            margin-top: 63px;
+        }
+        #main-left {
+            width: 830px;
+            margin-right: 30px;
+        }
+        #main-right {
+            width: 420px;
+        }
+        /* 
+        #main-left-ad, #main-right-ad {
+            background-color: gray;
+        }
+        id가 ad로 끝나는 요소 전부 선택
+        aside[id$=ad] {
+            margin-bottom: 16px;
+            border-radius: 8px;
+        }
+        #main-left-ad {
+            height: 130px;
+        } */
+
+        /* id가 main으로 시작하는 요소 전부 선택*/
+        section[id^=main] {
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+            margin-bottom: 16px;
+        }
+        #main-newstand {
+            height: 426px;
+        }
+        #main-shopping {
+            height: 560px;
+        }
+        #main-login {
+            height: 164px;
+            padding : 21px 20px 18px;
+            font-size: 1.4rem;
+            display: flex;
+            flex-flow: column;
+        }
+        #main-login > div:last-of-type {
+            font-size: 1.3rem;
+        }
+        #main-login > div:last-of-type > a:nth-of-type(2)::before, #main-login > div:last-of-type > a:nth-of-type(2)::after{
+            content: '';
+            background-color: var(--color_dot_divider);
+            width: 1px;
+            height: 12px;
+            margin: 4px 12px 0;
+            display: inline-block;
+        }
+        #login-btn {
+            margin-top: 13px;
+            padding: 17px 0px;
+            background-color: #03c75a;
+            color: white;
+        }
+        .w-and-s > header {
+            height: 52px;
+            padding: 6px 0px;
+        }
+        .w-and-s > div {
+            border-top: 1px var(--color_border_in);
+        }
+        .w-and-s {
+            height: 236px;
+            padding: 0px 18px;
+        }
+        #main-weather {
+        }
+        #main-stock {
+        }
+        /*#main-right-ad {
+            height: 240px;
+        }*/
         /* 시각 장애인을 위한 속성 */
         .blind {
             position: absolute;
@@ -421,7 +503,7 @@
                     </div>
                 </form>
             </div>
-            <div id="nav">
+            <nav id="nav">
                 <ul>
                     <li>
                         <a href="">
@@ -484,8 +566,39 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-            <div id="main"></div>
+            </nav>
+            <main id="main">
+                <div id="main-left">
+                    <section id="main-newstand">
+
+                    </section>
+                    <section id="main-shopping">
+
+                    </section>
+                </div>
+                <div id="main-right">
+                    <section id="main-login">
+                        <div>네이버를 더 안전하고 편리하게 이용하세요</div>
+                        <a href="#" id="login-btn">
+                            <img src="" alt="">
+                            로그인
+                        </a>
+                        <div>
+                            <a href="#">아이디 찾기</a>
+                            <a href="#">비밀번호 찾기</a>
+                            <a href="#">회원가입</a>
+                        </div>
+                    </section>
+                    <section id="main-weather" class="w-and-s">
+                        <header>날씨</header>
+                        <div></div>
+                    </section>
+                    <section id="main-stock" class="w-and-s">
+                        <header>증시</header>
+                        <div></div>
+                    </section>
+                </div>
+            </main>
         </div>
     </div>
 </body>
