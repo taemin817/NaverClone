@@ -97,8 +97,11 @@
         a {
             text-decoration: none;
         }
+        a:hover {
+            text-decoration: underline;
+        }
         a:visited {
-            color: black;
+            color: inherit;
         }
         #wrap {
             text-align: center;
@@ -362,7 +365,7 @@
             margin: 2px;
             content: '';
             display: inline-block;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.d5b6c236.png);
+            background-image: url(./sp_main.png);
             background-size: 433px 412px;
             background-repeat: no-repeat;
             width: 44px;
@@ -400,6 +403,48 @@
         }
         #main-newstand {
             height: 426px;
+            display: flex;
+            flex-flow: column;
+        }
+        #main-newstand-top {
+            flex: 1;
+            padding: 18px 20px 17px;
+        }
+        #main-newstand header, #main-newstand-contents{
+            display: flex;
+            justify-content: flex-start;
+        }
+        #main-newstand header {
+            font-size: 1.6rem;
+            color: rgba(8, 8, 8, .5);
+            line-height: 23px;
+            margin-bottom: 17px;
+        }
+        #main-newstand header .bold {
+            font-weight: bold;
+            color: black;
+        }
+        #main-newstand-contents {
+            height: 50px;
+            padding: 12px 20px;
+            background-color: var(--color_option_bg);
+            border-radius: 4px;
+        }
+        #main-newstand-grid {
+            display: grid;
+            height: 224px;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            width: 790px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--color_border_in);
+            border-radius: 4px;
+            margin-top: 18px;
+        }
+        #main-newstand footer {
+            border-top: 1px solid var(--color_border_in);
+            padding: 10px 0 11px;
         }
         #main-shopping {
             height: 560px;
@@ -411,8 +456,18 @@
             display: flex;
             flex-flow: column;
         }
+        /* main-login의 첫번째 div만 선택 */
+        #main-login > div:first-of-type {
+            line-height: 20px;
+        }
+        /* main-login의 마지막 div만 선택 */
         #main-login > div:last-of-type {
             font-size: 1.3rem;
+        }
+        #main-login > div:last-of-type a {
+            color: var(--color_caption2);
+            text-decoration: none;
+            letter-spacing: -0.4px; /* letter-spacing : 글자 간격 */
         }
         #main-login > div:last-of-type > a:nth-of-type(2)::before, #main-login > div:last-of-type > a:nth-of-type(2)::after{
             content: '';
@@ -423,10 +478,25 @@
             display: inline-block;
         }
         #login-btn {
+            display: block;
             margin-top: 13px;
+            margin-bottom: 16px;
             padding: 17px 0px;
             background-color: #03c75a;
             color: white;
+            border: 1px solid rgba(0,0,0,.06);
+            border-radius: 4px;
+        }
+        #login-btn i {
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-position: -120px -166px;
+            background-repeat: no-repeat;
+            width: 72px;
+            height: 14px;
+            display: inline-block;
+            margin: 3px 8px 0 0;
+            vertical-align: -1px;
         }
         .w-and-s > header {
             height: 52px;
@@ -570,7 +640,59 @@
             <main id="main">
                 <div id="main-left">
                     <section id="main-newstand">
-
+                        <div id="main-newstand-top">
+                            <header>
+                                <a href="#" class="bold">뉴스스탠드</a>
+                                <a href="#">언론사편집</a>
+                                <a href="#">엔터</a>
+                                <a href="#">스포츠</a>
+                                <a href="#">경제</a>
+                            </header>
+                            <div id="main-newstand-contents">
+                                <div>
+                                    <a href="#">전체언론사</a>
+                                    <a href="#">선택언론사</a>
+                                    <a href="#">뉴스내용</a>
+                                </div>
+                                <div>
+                                    <a href="#">뉴스스탠드</a>
+                                    <a href="#">뉴스홈</a>
+                                </div>
+                            </div>
+                            <div id="main-newstand-grid">
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                            </div>
+                        </div>
+                        <footer>
+                            <button><span class="blind">이전</span></button>
+                            <div>언론사 더보기</div>
+                            <button><span class="blind">다음</span></button>
+                            <button><span class="blind">목록형 보기</span></button>
+                            <button><span class="blind">격자형 보기</span></button>
+                        </footer>
                     </section>
                     <section id="main-shopping">
 
@@ -580,7 +702,7 @@
                     <section id="main-login">
                         <div>네이버를 더 안전하고 편리하게 이용하세요</div>
                         <a href="#" id="login-btn">
-                            <img src="" alt="">
+                            <i></i>
                             로그인
                         </a>
                         <div>
