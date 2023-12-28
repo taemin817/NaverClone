@@ -460,6 +460,76 @@
             padding: 12px 20px;
             background-color: var(--color_option_bg);
             border-radius: 4px;
+            font-size: 1.4rem;
+            line-height: 26px;
+        }
+        #main-newstand-contents .left-subject {
+            display: flex;
+            flex: 1;
+        }
+        #main-newstand-contents .left-subject > a:first-of-type::after {
+            content: '';
+            background: url(https://pm.pstatic.net/resources/asset/sp_main.d5b6c236.png);
+            background-size: 433px 412px;
+            background-position: -154px -201px;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 6px;
+            display: inline-block;
+            margin: 10px 0 0 5px;
+            vertical-align: top;
+        }
+        #main-newstand-slider {
+            padding-left: 25px;
+            display: flex;
+            position: relative;
+        }
+        #main-newstand-slider::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            background-color: var(--color_dot_divider);
+            width: 1px;
+            height: 12px;
+        }
+        #main-newstand-slider > a:last-of-type{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 350px;
+            display: inline-block;
+            overflow: hidden;
+        }
+        #main-newstand-slider > a:first-of-type::after {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            background-color: var(--color_dot_divider);
+            margin: 12px 6px 0 6px;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+        #main-newstand-contents .rigth-subject {
+            display: flex;
+        }
+        #main-newstand-contents .news-home-bold {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: -1px;
+            padding-left: 25px;
+        }
+        #main-newstand-contents .news-home-bold::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            width: 1px;
+            height: 12px;
+            background-color: var(--color_dot_divider);
         }
         #main-newstand-grid {
             display: grid;
@@ -689,14 +759,16 @@
                                 <a href="#" class="slash">경제</a>
                             </header>
                             <div id="main-newstand-contents">
-                                <div>
+                                <div class="left-subject">
                                     <a href="#">전체언론사</a>
-                                    <a href="#">선택언론사</a>
-                                    <a href="#">뉴스내용</a>
+                                    <div id="main-newstand-slider">
+                                        <a href="#">선택언론사</a>
+                                        <a href="#">뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용</a>
+                                    </div>
                                 </div>
-                                <div>
+                                <div class="right-subject">
                                     <a href="#">뉴스스탠드</a>
-                                    <a href="#">뉴스홈</a>
+                                    <a href="#" class="news-home-bold">뉴스홈</a>
                                 </div>
                             </div>
                             <div id="main-newstand-grid">
