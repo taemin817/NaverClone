@@ -407,7 +407,7 @@
             display: flex;
             flex-flow: column;
         }
-        #main-newstand-top {
+        #main-newstand-top, #main-shopping-top {
             flex: 1;
             padding: 18px 20px 17px;
         }
@@ -421,11 +421,11 @@
             border-radius: 50%;
             vertical-align: top;
         }
-        #main-newstand-top .slash {
+        .slash {
             position: relative;
             padding-left: 25px;
         }
-        #main-newstand-top .slash::before {
+        .slash::before {
             content: "";
             display: block;
             position: absolute;
@@ -436,26 +436,29 @@
             background-color: var(--color_dot_divider);
             transform: skewX(-15deg);
         }
-        #main-newstand-top .dot, #main-newstand-top .slash {
+        #main-shopping-top .slash::before {
+            left: 11px;
+        }
+        #main-newstand-top .dot, #main-newstand-top .slash, #main-shopping-top .slash {
             font-size: 1.6rem;
             color: rgba(8, 8, 8, .5);
             font-weight: 800;
         }
-        #main-newstand header, #main-newstand-contents {
+        header {
             display: flex;
             justify-content: flex-start;
-        }
-        #main-newstand header {
             font-size: 1.6rem;
             color: rgba(8, 8, 8, .5);
             line-height: 23px;
             margin-bottom: 17px;
         }
-        #main-newstand header .bold {
+        header .bold {
             font-weight: bold;
             color: black;
         }
-        #main-newstand-contents {
+        #main-newstand-contents, #main-shopping-contents {
+            display: flex;
+            justify-content: flex-start;
             height: 50px;
             padding: 12px 20px;
             background-color: var(--color_option_bg);
@@ -463,7 +466,7 @@
             font-size: 1.4rem;
             line-height: 26px;
         }
-        #main-newstand-contents .left-subject {
+        .left-subject {
             display: flex;
             flex: 1;
         }
@@ -514,14 +517,13 @@
         #main-newstand-contents .rigth-subject {
             display: flex;
         }
-        #main-newstand-contents .news-home-bold {
+        .news-home-bold, .subs-home-bold {
             position: relative;
             display: inline-block;
             font-weight: bold;
-            vertical-align: -1px;
             padding-left: 25px;
         }
-        #main-newstand-contents .news-home-bold::before {
+        .news-home-bold::before {
             content: '';
             display: block;
             position: absolute;
@@ -572,32 +574,27 @@
             top: 0px;
             background-color: transparent;
         }
-        #main-newstand footer .list::before {
+        #main-newstand footer .list::before, #main-newstand footer .grid::before {
             content: '';
             display: inline-block;
             background-image: url(https://pm.pstatic.net/resources/asset/sp_main.d5b6c236.png);
             background-size: 433px 412px;
-            background-position: -388px -21px;
             background-repeat: no-repeat;
             width: 20px;
             height: 20px;
+        }
+        #main-newstand footer .list::before {
+            background-position: -360px -312px;
         }
         #main-newstand footer .list {
             right: 49px;
             padding: 18px 9px 18px 20px;
         }
         #main-newstand footer .list:hover::before {
-            background-position: -118px -69px;
+            background-position: -360px -333px;
         }
         #main-newstand footer .grid::before {
-            content: '';
-            display: inline-block;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.d5b6c236.png);
-            background-size: 433px 412px;
-            background-position: -388px -126px;
-            background-repeat: no-repeat;
-            width: 20px;
-            height: 20px;
+            background-position: -388px -210px;
         }
         #main-newstand footer .grid {
             right: 0px;
@@ -642,6 +639,53 @@
         }
         #main-shopping {
             height: 560px;
+        }
+        #subs-subject {
+            display: inline-flex;
+            padding: 0px 7px 10px;
+        }
+        #main-shopping footer {
+            display: block;
+        }
+        #main-shopping footer button {
+            background-color: rgba(0,0,0,0);
+            border: transparent;
+            display: block;
+            width: 100%;
+            font-size: 1.3rem;
+            line-height: 56px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        #plus::before, #plus::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #5290ff;
+        }
+        #plus::before {
+            left: 50%;
+            top: 4px;
+            bottom: 4px;
+            width: 100%;
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        #plus {
+            width: 10px;
+            height: 10px;
+            position: relative;
+            display: inline-block;
+            margin: 23px 0 0 5px;
+            vertical-align: top;
+        }
+        #plus::after {
+            top: 50%;
+            left: 4px;
+            right: 4px;
+            height: 100%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
         }
         #main-login {
             height: 164px;
@@ -844,7 +888,7 @@
                             </header>
                             <div id="main-newstand-contents">
                                 <div class="left-subject">
-                                    <a href="#">전체언론사</a>
+                                    <a href="#">구독언론사</a>
                                     <div id="main-newstand-slider">
                                         <a href="#">선택언론사</a>
                                         <a href="#">뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용뉴스내용</a>
@@ -891,7 +935,65 @@
                         </footer>
                     </section>
                     <section id="main-shopping">
-
+                        <div id="main-shopping-top">
+                            <header>
+                                <a href="#" class="bold">추천・구독</a>
+                                <a href="#" class="slash">자동차</a>
+                                <a href="#" class="slash">웹툰</a>
+                                <a href="#" class="slash">패션뷰티</a>
+                                <a href="#" class="slash">레시피</a>
+                                <a href="#" class="slash">리빙</a>
+                                <a href="#" class="slash">책방</a>
+                                <a href="#" class="slash">지식+</a>
+                                <a href="#" class="slash">건강</a>
+                                <a href="#" class="slash">게임</a>
+                            </header>
+                            <div id="main-shopping-contents">
+                                <div class="left-subject">
+                                    <ul id="subs-subject">
+                                        <li>전체</li>
+                                        <li>인기</li>
+                                        <li>동물</li>
+                                        <li>여행</li>
+                                        <li>연애결혼</li>
+                                        <li>영화</li>
+                                        <li>육아</li>
+                                    </ul>
+                                </div>
+                                <div class="right-subject">
+                                    <a href="#" class="subs-home-bold">구독홈</a>
+                                </div>
+                            </div>
+                            <div id="main-shopping-grid">
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                            </div>
+                        </div>
+                        <footer>
+                            <button>펼쳐보기<i id="plus"></i></button>
+                        </footer>
                     </section>
                 </div>
                 <div id="main-right">
